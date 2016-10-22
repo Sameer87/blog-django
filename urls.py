@@ -4,7 +4,7 @@ from blog.models import Post
 
 urlpatterns = patterns('',
                        url(r'^$',ListView.as_view(
-                           queryset=Post.objects.all().order_by("-date")[:20],
+                           queryset=Post.objects.all().order_by("-date")[:25],
                            template_name="blog.html")),
                        url(r'^(?P<pk>\d+)$',DetailView.as_view(
                            model = Post,
@@ -13,6 +13,6 @@ urlpatterns = patterns('',
                            queryset=Post.objects.all().order_by("-date"),
                            template_name="postlist.html")),
                        url(r'^latestnews/',ListView.as_view(
-                           queryset=Post.objects.all().order_by("-date")[:5],
+                           queryset=Post.objects.all().order_by("-date")[:6],
                            template_name="postlist.html")),
                        )
